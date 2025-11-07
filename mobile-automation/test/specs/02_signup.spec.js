@@ -1,7 +1,7 @@
-const LoginPage = require('../../src/pageobjects/login.page')
-const SignupPage = require('../../src/pageobjects/signup.page')
-const HomePage = require('../../src/pageobjects/home.page')
-const users = require('../../data/users.json')
+const LoginPage = import('../../src/pageobjects/login.page')
+const SignupPage = import('../../src/pageobjects/signup.page')
+const HomePage = import('../../src/pageobjects/home.page')
+const users = import('../../data/users.json')
 describe('Signup', () => {
   it('Deve abrir tela de cadastro e criar usuário', async () => {
     await LoginPage.openSignup()
