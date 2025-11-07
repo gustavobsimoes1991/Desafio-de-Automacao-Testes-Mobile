@@ -1,5 +1,5 @@
-const HomePage = require('../../src/pageobjects/home.page')
-const FormsPage = require('../../src/pageobjects/forms.page')
+const HomePage = import('../../src/pageobjects/home.page')
+const FormsPage = import('../../src/pageobjects/forms.page')
 describe('Forms', () => {
   it('Deve preencher e submeter formulário com sucesso', async () => {
     await HomePage.openForms()
