@@ -1,5 +1,5 @@
-const HomePage = require('../../src/pageobjects/home.page')
-const SettingsPage = require('../../src/pageobjects/settings.page')
+const HomePage = import('../../src/pageobjects/home.page')
+const SettingsPage = import('../../src/pageobjects/settings.page')
 describe('Persistência', () => {
   it('As configurações devem permanecer após navegação', async () => {
     await HomePage.openSettings()
