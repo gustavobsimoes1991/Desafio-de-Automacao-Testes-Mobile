@@ -1,4 +1,4 @@
-const HomePage = import('../../src/pageobjects/home.page')
+const HomePage = import('../../src/pageobjects/home.page.js')
 describe('Navegação entre telas', () => {
   it('Deve navegar para Forms e Settings', async () => {
     await HomePage.openForms()
