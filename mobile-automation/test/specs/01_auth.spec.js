@@ -1,6 +1,6 @@
-const LoginPage = require('../../src/pageobjects/login.page')
-const HomePage = require('../../src/pageobjects/home.page')
-const users = require('../../data/users.json')
+const LoginPage = import('../../src/pageobjects/login.page')
+const HomePage = import('../../src/pageobjects/home.page')
+const users = import('../../data/users.json')
 describe('Auth - Login', () => {
   it('Deve logar com usuário válido', async () => {
     await LoginPage.login(users[0].email, users[0].password)
