@@ -1,5 +1,5 @@
-const HomePage = import('../../src/pageobjects/home.page')
-const SettingsPage = import('../../src/pageobjects/settings.page')
+const HomePage = import('../../src/pageobjects/home.page.js')
+const SettingsPage = import('../../src/pageobjects/settings.page.js')
 describe('Settings', () => {
   it('Deve alterar notificação e salvar perfil', async () => {
     await HomePage.openSettings()
