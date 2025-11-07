@@ -1,0 +1,28 @@
+stages:
+  - test
+variables:
+  NODE_ENV: "test"
+image: node:20
+cache:
+  paths:
+    - node_modules/
+before_script:
+  - npm ci
+test:android:
+  stage: test
+  script:
+    - npm run test:android
+  tags:
+    - android
+test:ios:
+  stage: test
+  script:
+    - npm run test:ios
+  tags:
+    - ios
+artifacts:
+  when: always
+  paths:
+    - allure-results
+    - test-results
+  expire_in: 1 week
