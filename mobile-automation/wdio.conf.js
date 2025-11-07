@@ -1,8 +1,6 @@
-import { config as baseConfig } from './wdio.shared.conf.js'
-import AppiumService from '@wdio/appium-service'
+const AppiumService = require('@wdio/appium-service').default
 
-export const config = {
-  ...baseConfig,
+exports.config = {
   runner: 'local',
   port: 4723,
   specs: ['./test/specs/**/*.js'],
