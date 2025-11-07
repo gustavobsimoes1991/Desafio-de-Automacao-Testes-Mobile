@@ -1,0 +1,38 @@
+name: Testes Mobile Android
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  android_e2e:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar Dependências
+        run: npm install
+
+      - name: Instalar Appium Globalmente
+        run: npm install -g appium
+
+      - name: Executar Testes em Emulador Android
+        uses: reactivecircus/android-emulator-runner@v3
+        with:
+          api-level: 30
+          target: default
+          arch: x86_64
+          force-avd-creation: false
+          emulator-boot-timeout: 300
+          disable-animations: true
+          script: npm run test:android
