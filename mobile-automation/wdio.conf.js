@@ -1,60 +1,26 @@
-const path = require('path')
-exports.config = {
+import { config as baseConfig } from './wdio.shared.conf.js'
+import AppiumService from '@wdio/appium-service'
+
+export const config = {
+  ...baseConfig,
   runner: 'local',
-  specs: [
-    './test/specs/**/*.spec.js'
-  ],
-  exclude: [],
+  port: 4723,
+  specs: ['./test/specs/**/*.js'],
   maxInstances: 1,
-  capabilities: [
-    {
-      platformName: 'Android',
-      'appium:platformVersion': process.env.ANDROID_PLATFORM_VERSION || '12.0',
-      'appium:deviceName': process.env.ANDROID_DEVICE_NAME || 'Android Emulator',
-      'appium:automationName': 'UiAutomator2',
-      'appium:app': process.env.ANDROID_APP_PATH || path.join(process.cwd(), 'apps', 'native-demo-app.apk'),
-      name: 'android'
-    },
-    {
-      platformName: 'iOS',
-      'appium:platformVersion': process.env.IOS_PLATFORM_VERSION || '16.0',
-      'appium:deviceName': process.env.IOS_DEVICE_NAME || 'iPhone Simulator',
-      'appium:automationName': 'XCUITest',
-      'appium:app': process.env.IOS_APP_PATH || path.join(process.cwd(), 'apps', 'native-demo-app.app'),
-      name: 'ios'
-    }
+  capabilities: [{
+    platformName: 'Android',
+    'appium:deviceName': 'Android Emulator',
+    'appium:platformVersion': '13.0',
+    'appium:automationName': 'UiAutomator2',
+    'appium:app': './apps/native-demo-app.apk',
+    'appium:autoGrantPermissions': true
+  }],
+  services: [
+    [AppiumService, {}]
   ],
-  logLevel: 'info',
-  bail: 0,
-  baseUrl: '',
-  waitforTimeout: 15000,
-  connectionRetryTimeout: 120000,
-  connectionRetryCount: 1,
-  services: ['appium'],
   framework: 'mocha',
-  reporters: [
-    'spec',
-    ['allure', {
-      outputDir: 'allure-results',
-      disableWebdriverStepsReporting: false,
-      disableWebdriverScreenshotsReporting: false
-    }]
-  ],
+  reporters: ['spec', ['allure', { outputDir: 'allure-results' }]],
   mochaOpts: {
-    ui: 'bdd',
-    timeout: 600000
-  },
-  beforeSession: function (config, capabilities, specs) {
-  },
-  before: function (capabilities, specs) {
-    const chai = require('chai')
-    global.expect = chai.expect
-  },
-  afterTest: async function(test, context, { error, result, duration, passed, retries }) {
-    if (!passed) {
-      const timestamp = new Date().toISOString().replace(/[:.]/g, '-')
-      const filename = `ERROR-${test.title.replace(/\s+/g, '_')}-${timestamp}.png`
-      await driver.saveScreenshot(`./allure-results/${filename}`)
-    }
+    timeout: 60000
   }
 }
