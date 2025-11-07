@@ -1,4 +1,4 @@
-const HomePage = require('../../src/pageobjects/home.page')
+const HomePage = import('../../src/pageobjects/home.page')
 describe('Logout', () => {
   it('Deve efetuar logout com sucesso', async () => {
     await HomePage.logout()
