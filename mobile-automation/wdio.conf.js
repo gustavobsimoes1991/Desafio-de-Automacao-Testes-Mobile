@@ -1,4 +1,4 @@
-import { AppiumService } from '@wdio/appium-service'
+import AppiumService from '@wdio/appium-service'
 
 export const config = {
   runner: 'local',
