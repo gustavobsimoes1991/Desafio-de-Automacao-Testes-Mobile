@@ -1,6 +1,6 @@
-const AppiumService = require('@wdio/appium-service').default
+import AppiumService from '@wdio/appium-service'
 
-exports.config = {
+export const config = {
   runner: 'local',
   port: 4723,
   specs: ['./test/specs/**/*.js'],
