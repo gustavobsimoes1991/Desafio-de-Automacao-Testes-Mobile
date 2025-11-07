@@ -1,5 +1,5 @@
-const LoginPage = import('../../src/pageobjects/login.page')
-const HomePage = import('../../src/pageobjects/home.page')
+const LoginPage = import('../../src/pageobjects/login.page.js')
+const HomePage = import('../../src/pageobjects/home.page.js')
 const users = import('../../data/users.json')
 describe('Auth - Login', () => {
   it('Deve logar com usuário válido', async () => {
