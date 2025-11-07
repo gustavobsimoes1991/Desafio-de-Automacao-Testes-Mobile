@@ -1,5 +1,5 @@
-const LoginPage = import('../../src/pageobjects/login.page')
-const SignupPage = import('../../src/pageobjects/signup.page')
+const LoginPage = import('../../src/pageobjects/login.page.js')
+const SignupPage = import('../../src/pageobjects/signup.page.js')
 const HomePage = import('../../src/pageobjects/home.page')
 const users = import('../../data/users.json')
 describe('Signup', () => {
