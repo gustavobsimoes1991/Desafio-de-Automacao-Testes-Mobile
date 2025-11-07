@@ -19,10 +19,13 @@ jobs:
           node-version: 20
 
       - name: Install Dependencies
+        working-directory: mobile-automation
         run: npm ci
 
       - name: Run Android Tests
+        working-directory: mobile-automation
         run: npm run test:android
 
       - name: Generate Allure Report
+        working-directory: mobile-automation
         run: npm run report:allure
