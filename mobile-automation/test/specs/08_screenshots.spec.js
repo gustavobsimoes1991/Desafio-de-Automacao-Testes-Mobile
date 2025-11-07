@@ -1,4 +1,4 @@
-const HomePage = import('../../src/pageobjects/home.page')
+const HomePage = import('../../src/pageobjects/home.page.js')
 const { save } = import('../../src/utils/screenshotHelper')
 describe('Evidencias - Screenshots', () => {
   it('Deve capturar screenshot da home', async () => {
