@@ -1,0 +1,29 @@
+mobile-automation/
+├─ package.json
+├─ wdio.conf.js
+├─ .gitignore
+├─ README.md
+├─ data/
+│  └─ users.json
+├─ src/
+│  ├─ pageobjects/
+│  │  ├─ login.page.js
+│  │  ├─ signup.page.js
+│  │  ├─ home.page.js
+│  │  ├─ forms.page.js
+│  │  ├─ settings.page.js
+│  ├─ utils/
+│  │  └─ screenshotHelper.js
+├─ test/
+│  └─ specs/
+│     ├─ 01_auth.spec.js
+│     ├─ 02_signup.spec.js
+│     ├─ 03_navigation.spec.js
+│     ├─ 04_forms.spec.js
+│     ├─ 05_errors.spec.js
+│     ├─ 06_settings.spec.js
+│     ├─ 07_persistence.spec.js
+│     ├─ 08_screenshots.spec.js
+│     ├─ 09_browserstack.sample.spec.js
+│     └─ 10_logout.spec.js
+├─ .gitlab-ci.yml
